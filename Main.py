@@ -101,20 +101,20 @@ def delete_juggler_table():
         traceback.print_exc()
         db.rollback()
 
-def update_entry(): #TODO FIX THIS
+def update_entry():
     name = input("Enter the name of the competitor who's record will be updated:")
     val = input("Enter the updated name of the competitor: ")
     val2 = input('Enter the new country: ')
     val3 = input('Enter the new number of catches: ')
     try:
-        value = (val,)
-        value2 = (val2,)
+        #value = (val,)
+        #value2 = (val2,)
         val3=int(val3)
-        value3 = (val3,)
+        #value3 = (val3,)
         sql= '''UPDATE chainsaw_jugglers
                 SET Chainsaw_Juggling_Record_Holder=?, Country=?, Number_of_catches=?
                 WHERE Chainsaw_Juggling_Record_Holder=?'''
-        c.execute(sql, (value, value2, value3, name))
+        c.execute(sql, (val, val2, val3, name))
         return
     except sqlite3.Error as e:
         print('An error occurred. Changes will be rolled back.')
